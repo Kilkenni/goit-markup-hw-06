@@ -17,6 +17,7 @@
   --border: #ececec;
   --border-project: #eeeeee;
   --border-btn-close: rgba(0, 0, 0, 0.1);
+  --border-input-call: rgba(33, 33, 33, 0.2);
   --border-input-subscribe: rgba(255, 255, 255, 0.3);
   --bkg-color-project-overlay: rgba(33, 150, 243, 0.9);
 
@@ -258,6 +259,35 @@ p {
   color: var(--accent-color);
 }
 
+.btn {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.875;
+
+  letter-spacing: 0.06em;
+  text-align: center;
+
+  background-color: var(--accent-color);
+  color: var(--text-color-other-inv);
+
+  border-radius: 4px;
+  border-style: none;
+  border-color: var(--accent-color);
+
+  cursor: pointer;
+
+  transition-property: background-color, border-color, color;
+  transition-timing-function: var(--anim-curve);
+  transition-duration: var(--anim-time);
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--accent-hover);
+  /* color: var(--text-color-secondary); */
+}
+
 /* section HERO */
 
 .section-hero {
@@ -287,40 +317,12 @@ p {
   margin-bottom: 30px;
 }
 
-.btn {
-  font-family: inherit;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 1.875;
-
-  letter-spacing: 0.06em;
-  text-align: center;
-
-  background-color: var(--accent-color);
-  color: var(--text-color-other-inv);
-
-  border-radius: 4px;
-  border-style: none;
-  border-color: var(--accent-color);
-
-  cursor: pointer;
-
-  transition-property: background-color, border-color, color;
-  transition-timing-function: var(--anim-curve);
-  transition-duration: var(--anim-time);
-}
-
 .section-hero-btn {
-  align-items: center;
   padding: 10px 32px;
   min-width: 200px;
   min-height: 50px;
-}
 
-.btn:hover,
-.btn:focus {
-  background-color: var(--accent-hover);
-  /* color: var(--text-color-secondary); */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* section TRAITS */
@@ -718,10 +720,6 @@ p {
 }
 
 .footer-subscribe-input {
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-
   margin-right: 12px;
   width: 358px;
   height: 50px;
@@ -741,13 +739,14 @@ p {
   /* line-height: 1.25; */
   letter-spacing: 0.03em;
 
-  color: var(--text-color-misc);
+  color: var(--text-color-other-inv);
 }
 
-/* .footer-subscribe-input::placeholder {
-  position: absolute;
-  top: 15px;
-} */
+.footer-subscribe-input::placeholder {
+  color: var(--text-color-misc);
+  /* position: absolute;
+  top: 15px; */
+}
 
 .footer-subscribe-btn {
   display: inline-flex;
@@ -756,6 +755,10 @@ p {
   padding: 10px 30px;
   min-width: 200px;
   min-height: 50px;
+}
+
+.footer-subscribe-btn > svg {
+  fill: var(--text-color-other-inv);
 }
 
 /* generic social link list */
@@ -815,8 +818,9 @@ p {
   transform: translate(-50%, -50%) scale(1, 1);
 
   width: 528px;
-  height: 581px;
-  padding: 8px;
+  /* height: 581px;  */
+  /* height is now adjusted automatically, should be 581px by default */
+  padding: 40px;
 
   border-radius: 4px;
   background-color: var(--bkg-color-primary);
@@ -845,6 +849,22 @@ p {
   padding: 0;
 }
 
+.btn-modal-close > svg {
+  fill: var(--text-color-other);
+  /* padding: 0;
+  margin: 0; */
+}
+
+.btn-modal-close:focus,
+.btn-modal-close:hover {
+  background-color: var(--bkg-color-primary);
+}
+
+.btn-modal-close:hover > svg,
+.btn-modal-close:focus > svg {
+  fill: var(--accent-color);
+}
+
 .modal-backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
@@ -853,4 +873,125 @@ p {
 
 .modal-backdrop.is-hidden .modal-window {
   transform: translate(-50%, -50%) scale(1, 0.05);
+}
+
+.modal-header {
+  color: var(--text-color-secondary);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  margin-bottom: 12px;
+}
+
+.modal-form {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.modal-form-label {
+  display: block;
+  position: relative;
+}
+
+.modal-form-label:not(:nth-last-of-type(2)) {
+  margin-bottom: 10px;
+}
+
+.modal-form-label:nth-last-of-type(2) {
+  margin-bottom: 20px;
+}
+
+.modal-form-label > span {
+  display: block;
+  margin-bottom: 4px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+}
+
+.modal-form-label > svg {
+  position: absolute;
+  bottom: 11px;
+  left: 12px;
+
+  fill: var(--text-color-secondary);
+}
+
+.modal-form-label-input,
+.modal-form-label-comment {
+  display: block;
+  width: 100%;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 42px;
+  padding-right: 16px;
+
+  color: var(--text-color-secondary);
+  font-size: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--border-input-call);
+  border-radius: 4px;
+
+  transition-property: border-color;
+  transition-timing-function: var(--anim-curve);
+  transition-duration: var(--anim-time);
+}
+
+.modal-form-label-input {
+  height: 40px;
+}
+
+.modal-form-label-comment {
+  resize: none;
+  padding-left: 16px;
+  height: 120px;
+}
+
+.modal-form-label-comment::placeholder {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.142;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.modal-form-label-input:hover,
+.modal-form-label-input:focus-within,
+.modal-form-label-comment:hover,
+.modal-form-label-comment:focus {
+  border-color: var(--accent-color);
+}
+
+.modal-form-label-icon {
+  transition-property: fill;
+  transition-timing-function: var(--anim-curve);
+  transition-duration: var(--anim-time);
+}
+
+.modal-form-label-input:hover + .modal-form-label-icon,
+.modal-form-label-input:focus-within + .modal-form-label-icon {
+  fill: var(--accent-color);
+}
+
+.modal-form-accept-label {
+  display: block;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
+.modal-btn-submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
