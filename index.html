@@ -101,10 +101,18 @@
                 </label>
 
                 <label class="modal-form-accept-label">
-                    <input id="call-accept" class="modal-form-accept" type="checkbox">
-                    Соглашаюсь с рассылкой и принимаю 
-                    <a href="" target="_blank">Условия договора</a> 
-                </label>    
+                    <input id="call-accept" class="modal-form-accept vis-hide" type="checkbox"> <!-- hidden real checkbox -->
+                    <svg class="modal-form-accept-chk" width="16" height="15">
+                        <use href="./images/icons/icons-sprite.svg#modal-checkbox"></use>
+                    </svg>
+                    <svg class="modal-form-accept-chk modal-form-accept-chk-checked" width="16" height="15">
+                        <use href="./images/icons/icons-sprite.svg#modal-checkbox-checked"></use>
+                    </svg> <!-- fake checkbox -->
+                    <span>
+                        Соглашаюсь с рассылкой и принимаю
+                        <a href="" target="_blank">Условия договора</a>
+                    </span>                  
+                </label>
             </form>
 
             <button class="btn section-hero-btn modal-btn-submit" type="submit">

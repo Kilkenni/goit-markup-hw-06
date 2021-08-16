@@ -982,12 +982,45 @@ p {
 }
 
 .modal-form-accept-label {
-  display: block;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-left: 12px;
+  margin-right: 12px;
 
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+}
+
+.modal-form-accept-chk {
+  fill: var(--text-color-secondary);
+
+  transition-property: opacity;
+  transition-timing-function: var(--anim-curve);
+  transition-duration: var(--anim-time);
+}
+
+.modal-form-accept-chk-checked {
+  position: absolute;
+  opacity: 0;
+  fill: var(--accent-color);
+
+  transition-property: opacity;
+  transition-timing-function: var(--anim-curve);
+  transition-duration: var(--anim-time);
+}
+
+.modal-form-accept:checked ~ .modal-form-accept-chk {
+  opacity: 0;
+}
+
+.modal-form-accept:checked ~ .modal-form-accept-chk-checked {
+  opacity: 1;
 }
 
 .modal-btn-submit {
